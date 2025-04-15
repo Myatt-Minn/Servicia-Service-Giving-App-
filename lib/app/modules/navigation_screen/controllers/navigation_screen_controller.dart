@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:x_book_shelf/app/modules/author/controllers/author_controller.dart';
 import 'package:x_book_shelf/app/modules/home/controllers/home_controller.dart';
 import 'package:x_book_shelf/app/modules/profile/controllers/profile_controller.dart';
+import 'package:x_book_shelf/app/modules/providers/controllers/author_controller.dart';
 
 class NavigationScreenController extends GetxController {
   //TODO: Implement NavigationScreenController

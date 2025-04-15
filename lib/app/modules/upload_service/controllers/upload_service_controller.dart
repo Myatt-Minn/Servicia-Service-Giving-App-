@@ -85,6 +85,7 @@ class UploadServiceController extends GetxController {
         return;
       }
       var serviceId = Uuid().v4();
+
       await supabase.from('services').insert({
         'title': titleController.text.trim(),
         'description': descriptionController.text.trim(),
@@ -164,8 +165,6 @@ class UploadServiceController extends GetxController {
             .from('users')
             .update({'givenServices': currentServices})
             .eq('uid', uid);
-
-        Get.snackbar('Success', 'Service added to provider.');
       } else {
         Get.snackbar('Info', 'Service already exists in provider\'s list.');
       }

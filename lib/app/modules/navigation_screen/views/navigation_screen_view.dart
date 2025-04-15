@@ -2,9 +2,9 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:x_book_shelf/app/data/consts_config.dart';
-import 'package:x_book_shelf/app/modules/author/views/author_view.dart';
 import 'package:x_book_shelf/app/modules/home/views/home_view.dart';
 import 'package:x_book_shelf/app/modules/profile/views/profile_view.dart';
+import 'package:x_book_shelf/app/modules/providers/views/author_view.dart';
 
 import '../controllers/navigation_screen_controller.dart';
 

@@ -78,7 +78,7 @@ class AuthorView extends GetView<AuthorController> {
   Widget _buildauthorIcon(String imagePath, ProviderModel author) {
     return GestureDetector(
       onTap: () {
-        Get.toNamed('/author-profile', arguments: author);
+        Get.toNamed('/author-profile', arguments: author.uid);
       },
       child: Column(
         mainAxisSize: MainAxisSize.min,

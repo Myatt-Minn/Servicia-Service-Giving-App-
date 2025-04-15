@@ -164,7 +164,7 @@ class BookDetailsView extends GetView<BookDetailsController> {
                       onTap: () {
                         Get.toNamed(
                           '/author-profile',
-                          arguments: book.provider,
+                          arguments: book.provider.uid,
                         );
                       },
                       child: Text(
@@ -253,8 +253,12 @@ class BookDetailsView extends GetView<BookDetailsController> {
                     var recommended = controller.recommendedBooks[index];
                     return GestureDetector(
                       onTap: () {
-                        // Navigate to new book details with Hero transition
+                        Get.to(
+                          () => const BookDetailsView(),
+                          arguments: recommended,
+                        );
                       },
+
                       child: Container(
                         width: 130,
                         decoration: BoxDecoration(
@@ -271,19 +275,16 @@ class BookDetailsView extends GetView<BookDetailsController> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            Hero(
-                              tag: recommended.id,
-                              child: ClipRRect(
-                                borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(12),
-                                  topRight: Radius.circular(12),
-                                ),
-                                child: FancyShimmerImage(
-                                  imageUrl: recommended.imageUrl,
-                                  height: 160,
-                                  width: 130,
-                                  boxFit: BoxFit.cover,
-                                ),
+                            ClipRRect(
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(12),
+                                topRight: Radius.circular(12),
+                              ),
+                              child: FancyShimmerImage(
+                                imageUrl: recommended.imageUrl,
+                                height: 160,
+                                width: 130,
+                                boxFit: BoxFit.cover,
                               ),
                             ),
                             Padding(

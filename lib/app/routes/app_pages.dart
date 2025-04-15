@@ -1,17 +1,9 @@
 import 'package:get/get.dart';
 
-import '../modules/all_books/bindings/all_books_binding.dart';
-import '../modules/all_books/views/all_books_view.dart';
-import '../modules/all_popular_books/bindings/all_popular_books_binding.dart';
-import '../modules/all_popular_books/views/all_popular_books_view.dart';
-import '../modules/author/bindings/author_binding.dart';
-import '../modules/author/views/author_view.dart';
-import '../modules/author_profile/bindings/instructor_profile_binding.dart';
-import '../modules/author_profile/views/instructor_profile_view.dart';
-import '../modules/book_details/bindings/book_details_binding.dart';
-import '../modules/book_details/views/book_details_view.dart';
-import '../modules/downloads/bindings/downloads_binding.dart';
-import '../modules/downloads/views/downloads_view.dart';
+import '../modules/all_popular_services/bindings/all_popular_books_binding.dart';
+import '../modules/all_popular_services/views/all_popular_books_view.dart';
+import '../modules/all_services/bindings/all_books_binding.dart';
+import '../modules/all_services/views/all_books_view.dart';
 import '../modules/edit_profile/bindings/edit_profile_binding.dart';
 import '../modules/edit_profile/views/edit_profile_view.dart';
 import '../modules/gate/bindings/gate_binding.dart';
@@ -26,8 +18,14 @@ import '../modules/privacy_policy/bindings/privacy_policy_binding.dart';
 import '../modules/privacy_policy/views/privacy_policy_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
+import '../modules/provider_profile/bindings/instructor_profile_binding.dart';
+import '../modules/provider_profile/views/instructor_profile_view.dart';
 import '../modules/provider_signup/bindings/provider_signup_binding.dart';
 import '../modules/provider_signup/views/provider_signup_view.dart';
+import '../modules/providers/bindings/author_binding.dart';
+import '../modules/providers/views/author_view.dart';
+import '../modules/service_details/bindings/book_details_binding.dart';
+import '../modules/service_details/views/book_details_view.dart';
 import '../modules/signup/bindings/signup_binding.dart';
 import '../modules/signup/views/signup_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
@@ -57,11 +55,6 @@ class AppPages {
       name: _Paths.SPLASH,
       page: () => const SplashView(),
       binding: SplashBinding(),
-    ),
-    GetPage(
-      name: _Paths.DOWNLOADS,
-      page: () => const DownloadsView(),
-      binding: DownloadsBinding(),
     ),
     GetPage(
       name: _Paths.AUTHOR,
