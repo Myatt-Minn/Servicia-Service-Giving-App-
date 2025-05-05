@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:x_book_shelf/app/modules/home/controllers/home_controller.dart';
+import 'package:x_book_shelf/app/modules/orders/controllers/orders_controller.dart';
 import 'package:x_book_shelf/app/modules/profile/controllers/profile_controller.dart';
 import 'package:x_book_shelf/app/modules/providers/controllers/author_controller.dart';
 
@@ -24,6 +25,9 @@ class NavigationScreenController extends GetxController {
         Get.put(AuthorController());
         break;
       case 2:
+        Get.put(OrdersController());
+        break;
+      case 3:
         Get.put(ProfileController());
         break;
     }
@@ -37,6 +41,8 @@ class NavigationScreenController extends GetxController {
       case 1:
         Get.delete<AuthorController>();
         break;
+      case 2:
+        Get.delete<OrdersController>();
       case 3:
         Get.delete<ProfileController>();
         break;

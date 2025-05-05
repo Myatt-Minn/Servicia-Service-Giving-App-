@@ -158,7 +158,7 @@ class AuthorProfileView extends GetView<AuthorProfileController> {
   Widget _buildserviceCard(ServiceModel service) {
     return GestureDetector(
       onTap: () {
-        Get.toNamed('/service-details', arguments: service);
+        Get.toNamed('/book-details', arguments: service);
       },
       child: Card(
         margin: const EdgeInsets.only(bottom: 16),

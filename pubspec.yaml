@@ -31,7 +31,6 @@ dependencies:
   cupertino_icons: ^1.0.8
   curved_navigation_bar: ^1.0.6
   fancy_shimmer_image: ^2.0.3
-  feedback: ^3.1.0
   file_picker: ^8.0.3
   flutter:
     sdk: flutter

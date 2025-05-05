@@ -179,7 +179,72 @@ class BookDetailsView extends GetView<BookDetailsController> {
                       Expanded(
                         child: ElevatedButton.icon(
                           onPressed: () {
-                            controller.makePhoneCall();
+                            if (controller.role.value == 'provider') {
+                              Get.snackbar(
+                                "Sorry",
+                                "You can't book a service with the provider account!",
+                                backgroundColor: Colors.yellow,
+                              );
+                              return;
+                            }
+                            Get.dialog(
+                              AlertDialog(
+                                title: const Text('Enter Address'),
+                                content: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    TextField(
+                                      controller: controller.addressController,
+                                      decoration: InputDecoration(
+                                        hintText:
+                                            "12th, Fifth Floor, Kyouk Myaung, Tamwe, Yangon",
+                                      ),
+                                    ),
+                                    SizedBox(height: 8),
+                                    ElevatedButton(
+                                      onPressed:
+                                          () => controller.selectServiceDate(
+                                            context,
+                                          ),
+                                      child: const Text(
+                                        'Select Serviceing Date',
+                                      ),
+                                    ),
+                                    Obx(
+                                      () => Text(
+                                        controller.serviceingDate.value
+                                            .toLocal()
+                                            .toString()
+                                            .split(' ')[0],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                actions: [
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      Get.back();
+                                    },
+                                    child: const Text('Cancel'),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  ElevatedButton(
+                                    onPressed: () async {
+                                      if (controller
+                                          .addressController
+                                          .text
+                                          .isNotEmpty) {
+                                        await controller.addOrder();
+                                      } else {
+                                        return;
+                                      }
+                                    },
+                                    child: const Text('Submit'),
+                                  ),
+                                ],
+                              ),
+                              // Dialog won't close on outside tap
+                            );
                           },
                           icon: const Icon(
                             Icons.contact_phone,
@@ -208,7 +273,7 @@ class BookDetailsView extends GetView<BookDetailsController> {
                       Expanded(
                         child: OutlinedButton.icon(
                           onPressed: () {
-                            controller.shareBook(book);
+                            controller.shareservice(book);
                           },
                           icon: const Icon(Icons.share, size: 20),
                           label: Text("Share This Service"),
@@ -247,10 +312,10 @@ class BookDetailsView extends GetView<BookDetailsController> {
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   padding: const EdgeInsets.symmetric(horizontal: 16),
-                  itemCount: controller.recommendedBooks.length,
+                  itemCount: controller.recommendedservices.length,
                   separatorBuilder: (_, __) => const SizedBox(width: 16),
                   itemBuilder: (context, index) {
-                    var recommended = controller.recommendedBooks[index];
+                    var recommended = controller.recommendedservices[index];
                     return GestureDetector(
                       onTap: () {
                         Get.to(

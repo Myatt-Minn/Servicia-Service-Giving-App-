@@ -25,6 +25,8 @@ abstract class Routes {
   static const PROVIDER_SIGNUP = _Paths.PROVIDER_SIGNUP;
   static const UPLOAD_SERVICE = _Paths.UPLOAD_SERVICE;
   static const PRIVACY_POLICY = _Paths.PRIVACY_POLICY;
+  static const ORDERS = _Paths.ORDERS;
+  static const BOOKINGS = _Paths.BOOKINGS;
 }
 
 abstract class _Paths {
@@ -51,4 +53,6 @@ abstract class _Paths {
   static const PROVIDER_SIGNUP = '/provider-signup';
   static const UPLOAD_SERVICE = '/upload-service';
   static const PRIVACY_POLICY = '/privacy-policy';
+  static const ORDERS = '/orders';
+  static const BOOKINGS = '/bookings';
 }

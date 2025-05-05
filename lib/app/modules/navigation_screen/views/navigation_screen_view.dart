@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:x_book_shelf/app/data/consts_config.dart';
 import 'package:x_book_shelf/app/modules/home/views/home_view.dart';
+import 'package:x_book_shelf/app/modules/orders/views/orders_view.dart';
 import 'package:x_book_shelf/app/modules/profile/views/profile_view.dart';
 import 'package:x_book_shelf/app/modules/providers/views/author_view.dart';
 
@@ -12,6 +13,7 @@ class NavigationScreenView extends GetView<NavigationScreenController> {
   final List<Widget> _views = [
     const HomeView(),
     const AuthorView(),
+    const OrdersView(),
     const ProfileView(),
   ];
 
@@ -49,10 +51,18 @@ class NavigationScreenView extends GetView<NavigationScreenController> {
                       : Colors.white, // Black when selected, white otherwise
             ),
             Icon(
-              Icons.person,
+              Icons.shopify,
               size: 30,
               color:
                   controller.currentIndex.value == 2
+                      ? Colors.black
+                      : Colors.white, // Black when selected, white otherwise
+            ),
+            Icon(
+              Icons.person,
+              size: 30,
+              color:
+                  controller.currentIndex.value == 3
                       ? Colors.black
                       : Colors.white, // Black when selected, white otherwise
             ),
